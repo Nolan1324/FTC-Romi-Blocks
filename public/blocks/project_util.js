@@ -26,7 +26,7 @@
 function fetchProjects(callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    fetchProjectsViaHttp(callback);
+    fetchProjectsViaFile(callback);
   } else if  (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     fetchProjectsViaFile(callback);
@@ -39,7 +39,7 @@ function fetchProjects(callback) {
 function fetchSamples(callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    fetchSamplesViaHttp(callback);
+    fetchSamplesViaFile(callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     fetchSamplesViaFile(callback);
@@ -52,7 +52,7 @@ function fetchSamples(callback) {
 function openProjectBlocks(projectName) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    openProjectBlocksViaHttp(projectName);
+    openProjectBlocksViaFile(projectName);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     openProjectBlocksViaFile(projectName);
@@ -65,7 +65,7 @@ function openProjectBlocks(projectName) {
 function fetchBlkFileContent(projectName, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    fetchBlkFileContentViaHttp(projectName, callback);
+    fetchBlkFileContentViaFile(projectName, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     fetchBlkFileContentViaFile(projectName, callback);
@@ -75,7 +75,7 @@ function fetchBlkFileContent(projectName, callback) {
 function newProject(projectName, sampleName, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    newProjectViaHttp(projectName, sampleName, callback);
+    newProjectViaFile(projectName, sampleName, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     newProjectViaFile(projectName, sampleName, callback);
@@ -85,7 +85,7 @@ function newProject(projectName, sampleName, callback) {
 function saveProject(projectName, blkFileContent, jsFileContent, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    saveProjectViaHttp(projectName, blkFileContent, jsFileContent, callback);
+    saveProjectViaFile(projectName, blkFileContent, jsFileContent, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     saveProjectViaFile(projectName, blkFileContent, jsFileContent, callback);
@@ -95,7 +95,7 @@ function saveProject(projectName, blkFileContent, jsFileContent, callback) {
 function renameProject(oldProjectName, newProjectName, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    renameProjectViaHttp(oldProjectName, newProjectName, callback);
+    renameProjectViaFile(oldProjectName, newProjectName, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     renameProjectViaFile(oldProjectName, newProjectName, callback);
@@ -105,7 +105,7 @@ function renameProject(oldProjectName, newProjectName, callback) {
 function copyProject(oldProjectName, newProjectName, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    copyProjectViaHttp(oldProjectName, newProjectName, callback);
+    copyProjectViaFile(oldProjectName, newProjectName, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     copyProjectViaFile(oldProjectName, newProjectName, callback);
@@ -115,7 +115,7 @@ function copyProject(oldProjectName, newProjectName, callback) {
 function enableProject(projectName, enable, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    enableProjectViaHttp(projectName, enable, callback);
+    enableProjectViaFile(projectName, enable, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     enableProjectViaFile(projectName, enable, callback);
@@ -125,7 +125,7 @@ function enableProject(projectName, enable, callback) {
 function deleteProjects(starDelimitedProjectNames, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    deleteProjectsViaHttp(starDelimitedProjectNames, callback);
+    deleteProjectsViaFile(starDelimitedProjectNames, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     deleteProjectsViaFile(starDelimitedProjectNames, callback);
@@ -135,7 +135,7 @@ function deleteProjects(starDelimitedProjectNames, callback) {
 function getBlocksJavaClassName(projectName, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    getBlocksJavaClassNameViaHttp(projectName, callback);
+    getBlocksJavaClassNameViaFile(projectName, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     getBlocksJavaClassNameViaFile(projectName, callback);
@@ -145,7 +145,7 @@ function getBlocksJavaClassName(projectName, callback) {
 function saveBlocksJava(relativeFileName, javaCode, callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    saveBlocksJavaViaHttp(relativeFileName, javaCode, callback);
+    saveBlocksJavaViaFile(relativeFileName, javaCode, callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     saveBlocksJavaViaFile(relativeFileName, javaCode, callback);

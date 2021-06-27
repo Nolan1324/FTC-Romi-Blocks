@@ -29,7 +29,7 @@
 function fetchJavaScriptForHardware(callback) {
   if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
     // html/js is in a browser, loaded as an http:// URL.
-    fetchJavaScriptForHardwareViaHttp(callback);
+    fetchJavaScriptForHardwareViaFile(callback);
   } else if (window.location.protocol === 'file:') {
     // html/js is in a browser, loaded as an file:// URL.
     fetchJavaScriptForHardwareViaFile(callback);
