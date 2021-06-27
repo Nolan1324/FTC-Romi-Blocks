@@ -108,6 +108,8 @@
   <script type="text/javascript" src="blocks/vuforia_trackable_default_listener.js"></script>
   <script type="text/javascript" src="blocks/vuforia_trackables.js"></script>
 
+  <script type="text/javascript" src="simulation/websockets/connection.js"></script>
+
   <script type="text/javascript" src="simulation/hardware/linear_op_mode.js"></script>
   <script type="text/javascript" src="simulation/hardware/dc_motor.js"></script>
   <script type="text/javascript" src="simulation/hardware/telemetry.js"></script>
@@ -173,6 +175,13 @@
 
     <div id="simControlPanelArea" class="vertical_area">
       <div class="fill_area content_border">
+        <div id="simConnectionStatus">
+          Romi WebSocket: disconnected
+        </div>
+        <div id="simConnectionArea">
+          <button id="simConnectButton" class="simButton" onclick="simConnectOnClick()">Connect</button>
+          <button id="simDisconnectButton" class="simButton" disabled onclick="simDisconnectOnClick()">Disconnect</button>
+        </div>
         <div id="simButtonsArea">
           <button id="simInitButton" class="simButton" onclick="simInitOnClick()">Init</button>
           <button id="simStartButton" class="simButton" disabled onclick="simStartOnClick()">Start</button>
