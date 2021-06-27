@@ -4,7 +4,8 @@ class LinearOpMode {
   stopped = false;
 
   init() {
-
+    this.started = false;
+    this.stopped = false;
   }
 
   start() {
