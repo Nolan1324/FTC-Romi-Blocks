@@ -6,24 +6,24 @@ class SimClient {
 
     this.socket.onopen = (e) => {
       console.log("Open")
-      simConnectionStatus.textContent = "Romi WebSocket: connected";
+      simSetConnectionStatus("connected");
 
       simAllowConnect(false);
     };
 
     this.socket.onmessage = (e) => {
-      console.log(e.data);
+      simReceive(e.data);
     };
 
     this.socket.onclose = (e) => {
       console.log("Close");
-      simConnectionStatus.textContent = "Romi WebSocket: disconnected";
+      simSetConnectionStatus("disconnected");
 
       simAllowConnect(true);
     };
 
     this.socket.onerror = (e) => {
-      simConnectionStatus.textContent = "Romi WebSocket: error";
+      simSetConnectionStatus("error");
 
       simAllowConnect(true);
     };
@@ -58,9 +58,10 @@ class SimClient {
 simClient = new SimClient();
 
 function simConnectOnClick() {
-  simClient.open();
-
+  simSetConnectionStatus("connecting...");
   simAllowConnect(false);
+
+  simClient.open();
 }
 
 function simDisconnectOnClick() {
@@ -70,6 +71,10 @@ function simDisconnectOnClick() {
 function simAllowConnect(allow) {
   simConnectButton.disabled = !allow;
   simDisconnectButton.disabled = allow;
+}
+
+function simSetConnectionStatus(status) {
+  simConnectionStatus.textContent = "Romi WebSocket: " + status;
 }
 
 
