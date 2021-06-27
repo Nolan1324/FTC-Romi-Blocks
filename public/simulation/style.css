@@ -1,0 +1,14 @@
+#simControlPanelArea {
+    width: 200px;
+}
+
+#simButtonsArea {
+    display: flex;
+    justify-content: center;
+    background: grey;
+    padding: 10px
+}
+
+.simButton {
+    margin: auto;
+}

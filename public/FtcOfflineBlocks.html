@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="css/blocks_offline.css">
   <link rel="stylesheet" type="text/css" href="css/blocks_common_less.css">
   <link rel="stylesheet" type="text/css" href="css/blocks_common.css">
+  <link rel="stylesheet" type="text/css" href="simulation/style.css">
 
   <script type="text/javascript" src="js/split.min.js"></script>
   <script type="text/javascript" src="blockly/blockly_compressed.js"></script>
@@ -107,6 +108,10 @@
   <script type="text/javascript" src="blocks/vuforia_trackable_default_listener.js"></script>
   <script type="text/javascript" src="blocks/vuforia_trackables.js"></script>
 
+  <script type="text/javascript" src="simulation/hardware/linear_op_mode.js"></script>
+  <script type="text/javascript" src="simulation/hardware/dc_motor.js"></script>
+  <script type="text/javascript" src="simulation/op_mode_exec.js"></script>
+
   <title>FTC</title>
 </head>
 <body onload="initializeFtcBlocks()">
@@ -164,6 +169,17 @@
       </div>
       <div id='blocklyArea' class="fill_area"></div>
     </div>
+
+    <div id="simControlPanelArea" class="vertical_area">
+      <div class="fill_area content_border">
+        <div id="simButtonsArea">
+          <button id="simInitButton" class="simButton" onclick="simInitOnClick()">Init</button>
+          <button id="simStartButton" class="simButton" disabled onclick="simStartOnClick()">Start</button>
+          <button id="simStopButton" class="simButton" disabled onclick="simStopOnClick()">Stop</button>
+        </div>
+      </div>
+    </div>
+
     <div class="dragBar" id="dragBar" draggable="true"></div>
     <div id="javaArea" class="vertical_area no_min_width">
       <div id="javaCodeHeading">Java Code:</div>
