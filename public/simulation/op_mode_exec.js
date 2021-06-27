@@ -30,6 +30,9 @@ function simStopOnClick() {
 
 
 function simRunCode() {
+  left_driveAsDcMotor = new DcMotor(0);
+  right_driveAsDcMotor = new DcMotor(1);
+
   let code = Blockly.JavaScript.workspaceToCode();
 
   code = code.replaceAll("linearOpMode", "await linearOpMode");

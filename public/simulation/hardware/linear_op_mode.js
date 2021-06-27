@@ -9,10 +9,16 @@ class LinearOpMode {
   }
 
   start() {
+    simDriverStationData.enabled.set(true);
+
     this.started = true;
   }
 
   stop() {
+    simDriverStationData.enabled.set(false);
+    simPWMData[0].speed.set(0);
+    simPWMData[1].speed.set(1);
+
     this.stopped = true;
   }
 
@@ -24,8 +30,6 @@ class LinearOpMode {
   }
 
   async opModeIsActive() {
-    console.log("EEE");
-
     await this.idle();
     if(this.stopped) {
       this.stopped = false;
