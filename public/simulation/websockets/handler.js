@@ -1,5 +1,19 @@
 simProviders = {};
 
+function simCreateProviders() {
+  simAddProvider(new DriverStationProvider());
+  for(let i = 0; i < 2; i++) {
+    simAddProvider(new PWMProvider(i));
+  }
+}
+
+function simDestroyProviders() {
+  for (const [key, value] of Object.entries(simProviders)) {
+    value.unregisterCallbacks();
+    delete simProviders[key];
+  }
+}
+
 function simReceive(data) {
   let message = JSON.parse(data);
 }
@@ -17,7 +31,16 @@ function simSendPayload(type, device, payload) {
     device: device,
     data: payload
   };
+
+  console.log(message);
+
   simClient.send(JSON.stringify(message));
+}
+
+function simAddProvider(provider) {
+  let key = simCreateKey(provider.type, provider.device);
+  simProviders[key] = provider;
+  provider.registerCallbacks();
 }
 
 function simCreateKey(type, device) {

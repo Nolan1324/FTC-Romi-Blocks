@@ -8,6 +8,8 @@ class SimClient {
       console.log("Open")
       simSetConnectionStatus("connected");
 
+      simCreateProviders();
+
       simAllowConnect(false);
     };
 
@@ -18,6 +20,8 @@ class SimClient {
     this.socket.onclose = (e) => {
       console.log("Close");
       simSetConnectionStatus("disconnected");
+
+      simDestroyProviders();
 
       simAllowConnect(true);
     };
@@ -43,7 +47,9 @@ class SimClient {
   }
 
   send(message) {
-    this.socket.send(message);
+    if(this.socket != null && this.isOpen()) {
+      this.socket.send(message);
+    }
   }
 
   isOpen() {
