@@ -1,14 +1,16 @@
 var simMainFunction = null;
 
 linearOpMode = new LinearOpMode();
+telemetry = new Telemetry();
 
 function simInitOnClick() {
   simInitButton.disabled = true;
   simStartButton.disabled = false;
   simStopButton.disabled = false;
 
-  simRunCode();
   linearOpMode.init();
+  telemetry.update();
+  simRunCode();
 }
 
 function simStartOnClick() {

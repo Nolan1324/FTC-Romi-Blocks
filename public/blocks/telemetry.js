@@ -122,7 +122,7 @@ Blockly.JavaScript['telemetry_addTextData'] = function(block) {
       block, 'KEY', Blockly.JavaScript.ORDER_COMMA);
   var text = Blockly.JavaScript.valueToCode(
       block, 'TEXT', Blockly.JavaScript.ORDER_COMMA);
-  return 'telemetryAddTextData(' + key + ', ' + text + ');\n';
+  return telemetryIdentifierForJavaScript + '.addTextData(' + key + ', ' + text + ');\n';
 };
 
 Blockly.FtcJava['telemetry_addTextData'] = function(block) {
@@ -130,7 +130,7 @@ Blockly.FtcJava['telemetry_addTextData'] = function(block) {
       block, 'KEY', Blockly.FtcJava.ORDER_COMMA);
   var text = Blockly.FtcJava.valueToCode(
       block, 'TEXT', Blockly.FtcJava.ORDER_COMMA);
-  return 'telemetry.addData(' + key + ', ' + text + ');\n';
+  return telemetryIdentifierForJavaScript + '.addData(' + key + ', ' + text + ');\n';
 };
 
 Blockly.Blocks['telemetry_addTextData_All'] = {

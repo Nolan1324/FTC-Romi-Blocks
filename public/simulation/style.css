@@ -12,3 +12,8 @@
 .simButton {
     margin: auto;
 }
+
+#simTelemetry {
+    white-space: pre;
+    word-wrap: break-word;
+}
