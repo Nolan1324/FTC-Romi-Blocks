@@ -2,6 +2,8 @@ var simMainFunction = null;
 
 linearOpMode = new LinearOpMode();
 telemetry = new Telemetry();
+gamepad1 = new Gamepad();
+gamepad2 = new Gamepad();
 
 function simInitOnClick() {
   simInitButton.disabled = true;
