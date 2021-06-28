@@ -35,6 +35,8 @@ function initializeFtcBlocks() {
       setTimeout(function() {
         initializeBlocks();
       }, 10);
+
+      simConnectOnClick();
     } else  {
       alert(errorMessage);
     }

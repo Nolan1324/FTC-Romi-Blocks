@@ -1,0 +1,26 @@
+#simControlPanelArea {
+    width: 300px;
+}
+
+#simButtonsArea {
+    display: flex;
+    justify-content: center;
+    background: grey;
+    padding: 10px
+}
+
+.simButton {
+    margin: auto;
+}
+
+#simTelemetry {
+    white-space: pre;
+    word-wrap: break-word;
+}
+
+#simConnectionArea {
+    display: flex;
+    justify-content: center;
+    background: green;
+    padding: 10px
+}
