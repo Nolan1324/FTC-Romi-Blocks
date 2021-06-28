@@ -35,6 +35,11 @@ function simRunCode() {
   left_driveAsDcMotor = new DcMotor(0);
   right_driveAsDcMotor = new DcMotor(1);
 
+  dio_0AsDigitalChannel = new DigitalChannel(0);
+  dio_1AsDigitalChannel = new DigitalChannel(1);
+  dio_2AsDigitalChannel = new DigitalChannel(2);
+  dio_3AsDigitalChannel = new DigitalChannel(3);
+
   let code = Blockly.JavaScript.workspaceToCode();
 
   code = code.replaceAll("linearOpMode", "await linearOpMode");

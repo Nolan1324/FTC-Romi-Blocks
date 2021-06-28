@@ -5,6 +5,9 @@ function simCreateProviders() {
   for(let i = 0; i < 2; i++) {
     simAddProvider(new PWMProvider(i));
   }
+  for(let i = 0; i < 8; i++) {
+    simAddProvider(new DIOProvider(i));
+  }
 }
 
 function simDestroyProviders() {
@@ -16,6 +19,19 @@ function simDestroyProviders() {
 
 function simReceive(data) {
   let message = JSON.parse(data);
+
+  let type = message.type;
+  let device = message.device;
+  let payload = message.data;
+
+  let messageKey = simCreateKey(type, device);
+  let provider = simProviders[messageKey];
+
+  if(provider != null) {
+    for (const [key, value] of Object.entries(payload)) {
+      provider.onNetValueChanged(key, value);
+    }
+  }
 }
 
 function simSendValue(type, device, field, value) {

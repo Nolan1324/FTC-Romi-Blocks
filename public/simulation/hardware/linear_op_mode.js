@@ -16,8 +16,14 @@ class LinearOpMode {
 
   stop() {
     simDriverStationData.enabled.set(false);
-    simPWMData[0].speed.set(0);
-    simPWMData[1].speed.set(1);
+
+    for(let i = 0; i < 2; i++) {
+      simPWMData[i].speed.set(0);
+    }
+
+    for(let i = 0; i < 4; i++) {
+      simDIOData[i].value.set(false);
+    }
 
     this.stopped = true;
   }
